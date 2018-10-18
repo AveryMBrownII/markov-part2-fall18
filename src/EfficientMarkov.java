@@ -3,7 +3,7 @@ import java.util.HashMap;
 import java.util.NoSuchElementException;
 
 public class EfficientMarkov extends BaseMarkov {
-	public HashMap<String,ArrayList<String>> myMap; // keys are the k-grams in a k-order Markov model.
+	private HashMap<String,ArrayList<String>> myMap; // keys are the k-grams in a k-order Markov model.
 													// values are a list of single-character letters that follow the key
 	public EfficientMarkov (int order) {
 		super(order);
