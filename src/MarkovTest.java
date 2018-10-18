@@ -80,6 +80,7 @@ public class MarkovTest {
 		MarkovInterface<String> markov = getModel(1);
 		markov.setTraining(testString);
 		String output = markov.getRandomText(100);
+		//System.out.println(output);
 		assertTrue(
 				"This test checks if MarkovModel makes a correct " + 
 				"Ngram when the source contains no repeat letters",

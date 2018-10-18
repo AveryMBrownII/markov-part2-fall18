@@ -19,14 +19,12 @@ public class EfficientMarkov extends BaseMarkov {
 	public void setTraining(String text) {
 		myText = text;
 		myMap.clear();
-		int index = 0;
-		while (index < myText.length()-myOrder-1){
+		for (int index = 0; index <= (myText.length()-myOrder)-1; index++) {
 			String kgram = myText.substring(index, index+myOrder);
 			myMap.putIfAbsent(kgram, new ArrayList<String>());
 			myMap.get(kgram).add(String.valueOf(myText.charAt(index+myOrder)));
-			index += 1;
 		}
-		String end = myText.substring(index);
+		String end = myText.substring(myText.length()-myOrder);
 		myMap.putIfAbsent(end,new ArrayList<String>());
 		myMap.get(end).add(PSEUDO_EOS);	
 	}
