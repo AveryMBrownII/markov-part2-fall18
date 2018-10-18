@@ -38,10 +38,12 @@ public class MarkovDriver {
 		File f = new File(filename);
 		String text = TextSource.textFromFile(f);
 		MarkovInterface<String> standard = new BaseMarkov();
-		//MarkovInterface<String> efficient = new EfficientMarkov();
-		MarkovInterface<WordGram> wmm = new BaseWordMarkov();
+		MarkovInterface<String> efficient = new EfficientMarkov();
+		//MarkovInterface<WordGram> wmm = new BaseWordMarkov();
 		//MarkovInterface<WordGram> ewm = new EfficientWordMarkov();
 		markovGenerate(standard,text);
+		markovGenerate(efficient,text);
+
 	}
 
 	private static void printNicely(String random, int screenWidth) {
