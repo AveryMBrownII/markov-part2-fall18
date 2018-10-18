@@ -26,9 +26,9 @@ public class EfficientMarkov extends BaseMarkov {
 			myMap.get(kgram).add(String.valueOf(myText.charAt(index+myOrder)));
 			index += 1;
 		}
-		String kgram = myText.substring(index, index+myOrder);
-		myMap.putIfAbsent(kgram,new ArrayList<String>());
-		myMap.get(kgram).add(PSEUDO_EOS);	
+		String end = myText.substring(index);
+		myMap.putIfAbsent(end,new ArrayList<String>());
+		myMap.get(end).add(PSEUDO_EOS);	
 	}
 	
 	@Override
