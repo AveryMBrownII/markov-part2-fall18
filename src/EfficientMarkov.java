@@ -4,7 +4,7 @@ import java.util.NoSuchElementException;
 
 public class EfficientMarkov extends BaseMarkov {
 	private HashMap<String,ArrayList<String>> myMap; // keys are the k-grams in a k-order Markov model.
-													// values are a list of single-character letters that follow the key
+													 // values are a list of single-character letters that follow the key
 	public EfficientMarkov (int order) {
 		super(order);
 		myMap = new HashMap<>();
@@ -33,6 +33,5 @@ public class EfficientMarkov extends BaseMarkov {
 	public ArrayList<String> getFollows(String key){	
 		if (myMap.containsKey(key)) {return myMap.get(key);}
 		else {throw new NoSuchElementException(key+" not in map");}
-
 	}
 }

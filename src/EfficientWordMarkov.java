@@ -3,8 +3,8 @@ import java.util.HashMap;
 import java.util.NoSuchElementException;
 
 public class EfficientWordMarkov extends BaseWordMarkov {
-	private HashMap<WordGram,ArrayList<String>> myMap; // keys are the wordgrams in a k-order Markov model.
-													// values are a list of words that follow the key
+	private HashMap<WordGram,ArrayList<String>> myMap;   // keys are the wordgrams in a k-order Markov model.
+													     // values are a list of words that follow the key
 	public EfficientWordMarkov (int order) {
 		super(order);
 		myMap = new HashMap<>();

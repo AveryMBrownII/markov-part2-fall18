@@ -1,7 +1,6 @@
 This is the analysis for Markov Part 2, Fall 2018
 
-Include your name and net id here. Answer the questions from the assignment 
-that are reproduced below
+Avery Brown (amb222)
 
 (1) Determine (from running Benchmark.java) how long it takes for 
 BaseMarkov to generate 2,000, 4,000, 8,000, 16,000, and 32,000 
@@ -11,6 +10,33 @@ The program also generates 4,096 characters using texts that increase in
 size from 496,768 characters to 4,967,680 characters (10 times the number).  
 Do you the timings support the O(NT) analysis for BaseMarkov?
 
+Starting tests
+
+time	source	#chars
+0.226	496768	2000
+0.449	496768	4000
+0.977	496768	8000
+1.459	496768	16000
+3.625	496768	32000
+
+0.471	496768	4096
+0.942	993536	4096
+1.692	1490304	4096
+2.335	1987072	4096
+2.388	2483840	4096
+2.926	2980608	4096
+3.371	3477376	4096
+3.937	3974144	4096
+4.230	4470912	4096
+4.708	4967680	4096
+
+Finished tests
+
+** My timings support the O(NT) analysis for BaseMarkov because as the # of random characters  
+generated increased, the time it took to run the code was O(T) because getFollows is called T times. 
+As the number of characters contained in the text increased, the time that it took to run the code was O(N)
+because generating a training text of size N is dependent on N.
+BaseMarkov generates T characters from a N size training text so it's O(NT)
 
 
 (2) Determine (from running Benchmark.java) how long it takes for 
@@ -21,7 +47,40 @@ The program also generates 4,096 characters using texts that increase in
 size from 496,768 characters to 4,967,680 characters (10 times the number).  
 Do you the timings support the O(N+T) analysis for EfficientMarkov?
 
+Starting tests
+
+time	source	#chars
+0.196	496768	2000
+0.106	496768	4000
+0.162	496768	8000
+0.119	496768	16000
+0.140	496768	32000
+
+0.096	496768	4096
+0.225	993536	4096
+0.354	1490304	4096
+0.501	1987072	4096
+0.664	2483840	4096
+0.789	2980608	4096
+1.736	3477376	4096
+2.150	3974144	4096
+2.498	4470912	4096
+2.843	4967680	4096
+
+Finished tests
+
+** My timings support the O(N+T) analysis for EfficientMarkov because as the # of random characters  
+generated increased, the time it took to run the code was O(1) because EfficientMarkov,getFolllows is a O(1) operation
+that is called T times. As the number of characters contained in the text increased, the time that it took to run the code was O(N).
+EfficientMarkov uses a hashmap to look at the values of the training text (almost instantly) to choose a value so it is O(N+T)
+
 (3)The tests in the class Benchmark use an order-5 Markov Model. 
 Run tests that you think are appropriate to determine if the order of the 
 Markov Model has a significant impact on the running time for BaseMarkov. 
 Explain your reasoning.
+
+
+**No, the order of the Markov Model does not have a significant impact on the running time for BaseMarkov
+because the times did not change significantly as the order increased. I tested order-3, order-5, and order-7 markov models 
+and did not see any major changes. This is because the number of words created changes, but since it happens almost instantly
+it is irrelevant for the runtime,
